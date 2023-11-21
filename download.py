@@ -24,7 +24,7 @@ if force_automodel:
 
 print(f"Downloading model {model_name} from huggingface model hub")
 config = AutoConfig.from_pretrained(model_name)
-model_type = config.to_dict()['model_type']
+model_type = os.getenv('MODEL_TYPE', config.to_dict()['model_type'])
 
 if model_type is not None and model_type == "t5":
     SentenceTransformer(model_name, cache_folder=model_dir)
