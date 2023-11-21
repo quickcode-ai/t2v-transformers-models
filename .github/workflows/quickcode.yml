@@ -36,7 +36,7 @@ jobs:
 
       - name: Build custom image
         run: |
-          cicd/build_custom_base.sh
+          docker build -f custom.Dockerfile -t ${{ env.ECR_REPO }}/t2v-transformers-models:custom .
 
       - name: push
         run: |
