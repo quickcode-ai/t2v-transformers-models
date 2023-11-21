@@ -27,9 +27,6 @@ jobs:
 
       - uses: quipper/setup-aws-cli-action@main
 
-      - name: Configure kubectl to use our EKS
-        run: aws eks update-kubeconfig --name quickcode --alias aws/quickcode
-
       - name: Login to ECR
         uses: docker/login-action@v3
         with:
